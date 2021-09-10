@@ -1,28 +1,40 @@
 <template>
-  <ul class="productlist">
-    <li v-for="product in availableProductsAscending" v-bind:key="product.id">
-      <Product v-bind="product" />
-    </li>
-  </ul>
+  <div class="productlist">
+    <div class="productlist__filters">
+      <label><input type="radio" name="sort" :value="sortDirection" @change="updateSortDirection('ASC')" checked> Price low to high</label>
+      <label><input type="radio" name="sort" :value="sortDirection" @change="updateSortDirection('DESC')"> Price high to low</label>
+    </div>
+    <ul class="productlist__list">
+      <Product
+        v-for="product in sortedProducts"
+        v-bind="product"
+        v-bind:key="product.id"
+        @productButtonClicked="addProductToCart(product)" />
+    </ul>
+  </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import Product from './Product.vue'
 
 export default {
   name: 'ProductList',
   props: {
+    sortDirection: {
+      type: String,
+      default: 'ASC'
+    },
   },
   computed: {
     ...mapGetters([
-      'availableProducts',
+      'availableProducts'
     ]),
-    availableProductsAscending: function() {
-      return this.sortProducts([...this.availableProducts], 'ASC')
-    },
-    availableProductsDescending: function() {
-      return this.sortProducts([...this.availableProducts], 'DESC')
+    ...mapActions([
+      'addToCart'
+    ]),
+    sortedProducts: function() {
+      return this.sortProducts([...this.availableProducts], this.sortDirection)
     }
   },
   methods: {
@@ -45,6 +57,12 @@ export default {
       })
 
       return array
+    },
+    addProductToCart(product) {
+      this.$store.dispatch('addToCart', {id: product.id, amount: product.availableQuantity});
+    },
+    updateSortDirection(direction) {
+      this.sortDirection = direction
     }
   },
   components: {
