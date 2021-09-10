@@ -1,12 +1,13 @@
 <template>
-  <div class="product">
+  <li class="product">
     <img :src="image" alt="">
     <div class="product__bestseller" v-if="isBestSeller">Best Seller</div>
     <div class="product__title">{{ title }}</div>
     <div class="product__price">
       {{ formattedPrice }}
     </div>
-  </div>
+    <button label="Hi world" @click="buttonClicked">add/remove carte</button>
+  </li>
 </template>
 
 <script>
@@ -30,6 +31,15 @@ export default {
     isBestSeller: {
       type: Boolean,
       required: true
+    },
+    id: {
+      type: Number,
+      required: true
+    }
+  },
+  methods: {
+    buttonClicked: function() {
+      this.$emit('productButtonClicked')
     }
   },
   computed: {
@@ -41,18 +51,10 @@ export default {
 </script>
 
 <style lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
 li {
-  display: inline-block;
-  margin: 0 10px;
+  outline: 1px solid red;
 }
-a {
-  color: #42b983;
+img {
+  max-width: 300px;
 }
 </style>
