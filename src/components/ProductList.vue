@@ -82,9 +82,11 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: var(--size-b);
+  padding: var(--size-c);
 
   &__empty {
+    @extend %typography-empty;
+
     align-items: center;
     display: flex;
     height: 100%;
@@ -93,8 +95,10 @@ export default {
   }
 
   &__filters {
+    @extend %typography-heading;
+
     color: $hue-slate-50;
-    padding-bottom: var(--size-b);
+    padding-bottom: var(--size-c);
 
     > * {
       display: inline;
@@ -109,15 +113,15 @@ export default {
     }
 
     > * + * {
-      margin-left: var(--size-b);
+      margin-left: var(--size-c);
 
       @include at-least(medium) {
         margin-left: 0;
-        margin-top: var(--size-a);
+        margin-top: var(--size-b);
       }
 
       @include at-least(large) {
-        margin-left: var(--size-b);
+        margin-left: var(--size-c);
         margin-top: 0;
       }
     }
@@ -129,7 +133,7 @@ export default {
     padding: 0;
 
     > * + *{
-      margin-top: var(--size-b);
+      margin-top: var(--size-c);
     }
   }
 }
