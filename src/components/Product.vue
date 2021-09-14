@@ -91,7 +91,7 @@ export default {
       align-self: stretch;
       border-radius: $radius-card 0 0 $radius-card;
       height: auto;
-      width: 8rem;
+      width: 33%;
     }
   }
 
