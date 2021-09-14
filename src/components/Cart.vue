@@ -68,15 +68,25 @@ export default {
   position: relative;
 
   > * {
-    padding: var(--size-b);
+    padding: var(--size-c);
   }
 
   &__empty {
+    @extend %typography-empty;
+
     align-items: center;
     display: flex;
     height: 100%;
     justify-content: center;
     text-align: center;
+  }
+
+  &__heading {
+    @extend %typography-heading;
+
+    color: $hue-slate-50;
+    margin: 0;
+    padding: var(--size-c) var(--size-c) 0;
   }
 
   &__controls {
@@ -99,13 +109,19 @@ export default {
     text-align: right;
   }
 
+  &__total-header {
+    @extend %typography-subheading;
+
+    color: $hue-slate-50;
+  }
+
   &__total-price {
-    font-size: 2rem;
+    @extend %typography-cart-total-price;
   }
 
 
   .product + .product {
-    margin-top: var(--size-b);
+    margin-top: var(--size-c);
   }
 }
 
