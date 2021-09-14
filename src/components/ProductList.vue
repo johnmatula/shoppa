@@ -1,16 +1,22 @@
 <template>
   <div class="productlist">
     <div class="productlist__filters">
-      <label><input type="radio" name="sort" :value="sortDirection" @change="updateSortDirection('ASC')" checked> Price low to high</label>
-      <label><input type="radio" name="sort" :value="sortDirection" @change="updateSortDirection('DESC')"> Price high to low</label>
+      <label>
+        <input type="radio" name="sort" :value="sortDirection" :disabled="totalAvailableQuantity <= 1" @change="updateSortDirection('ASC')" checked> Price low to high</label>
+      <label>
+        <input type="radio" name="sort" :value="sortDirection" :disabled="totalAvailableQuantity <= 1" @change="updateSortDirection('DESC')"> Price high to low</label>
     </div>
-    <ul class="productlist__list">
+    <ul class="productlist__list" v-if="totalAvailableQuantity">
       <Product
         v-for="product in sortedProducts"
         v-bind="product"
         v-bind:key="product.id"
+        buttonLabel="➕ Add"
         @productButtonClicked="addProductToCart(product)" />
     </ul>
+    <div class="productlist__empty" v-if="!totalAvailableQuantity">
+      <p>You’ve added everything we’ve got to your cart. Nice work!</p>
+    </div>
   </div>
 </template>
 
@@ -20,22 +26,22 @@ import Product from './Product.vue'
 
 export default {
   name: 'ProductList',
-  props: {
-    sortDirection: {
-      type: String,
-      default: 'ASC'
-    },
+  data: function() {
+    return {
+      sortDirection: 'ASC'
+    }
   },
   computed: {
     ...mapGetters([
-      'availableProducts'
+      'availableProducts',
+      'totalAvailableQuantity'
     ]),
     ...mapActions([
       'addToCart'
     ]),
     sortedProducts: function() {
       return this.sortProducts([...this.availableProducts], this.sortDirection)
-    }
+    },
   },
   methods: {
     // Compare by price, then by best seller first, then by title.
@@ -72,5 +78,59 @@ export default {
 </script>
 
 <style lang="scss">
+.productlist {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--size-b);
 
+  &__empty {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__filters {
+    color: $hue-slate-50;
+    padding-bottom: var(--size-b);
+
+    > * {
+      display: inline;
+
+      @include at-least(medium) {
+        display: block;
+      }
+
+      @include at-least(large) {
+        display: inline;
+      }
+    }
+
+    > * + * {
+      margin-left: var(--size-b);
+
+      @include at-least(medium) {
+        margin-left: 0;
+        margin-top: var(--size-a);
+      }
+
+      @include at-least(large) {
+        margin-left: var(--size-b);
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    > * + *{
+      margin-top: var(--size-b);
+    }
+  }
+}
 </style>
