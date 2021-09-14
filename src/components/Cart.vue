@@ -3,6 +3,7 @@
     <div class="cart__controls">
       <button class="cart__close" @click="closeCart">Close</button>
     </div>
+    <h2 class="cart__heading">Shopping cart: {{ totalCartQuantity }} {{ totalCartQuantity === 1 ? "item" : "items" }}</h2>
     <ul class="cart__list" v-if="totalCartQuantity">
       <Product
         v-for="product in cartProducts"
@@ -15,7 +16,7 @@
       <p>Make your cart happy by adding some products.</p>
     </div>
     <div class="cart__total">
-      <p>Total cost</p>
+      <p class="cart__total-header">Total cost</p>
       <transition name="anim--cart-price">
         <div class="cart__total-price" :key="totalPrice">{{ totalPrice }}</div>
       </transition>
