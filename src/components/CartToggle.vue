@@ -48,7 +48,7 @@ export default {
   &::before {
     content: '🛒';
     font-size: 80%;
-    margin-right: var(--size-a);
+    margin-right: var(--size-b);
   }
 }
 
