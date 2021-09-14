@@ -1,13 +1,15 @@
 <template>
   <li class="product">
     <img class="product__photo" :src="image" alt="">
-    <div class="product__bestseller" v-if="isBestSeller">Best Seller</div>
-    <div class="product__title">{{ title }}</div>
-    <div class="product__actions">
-      <div class="product__price">
-        {{ formattedPrice }}
+    <div class="product__content">
+      <div class="product__bestseller" v-if="isBestSeller">Best Seller</div>
+      <p class="product__title">{{ title }}</p>
+      <div class="product__actions">
+        <p class="product__price">
+          {{ formattedPrice }}
+        </p>
+        <button class="product__add" @click="buttonClicked">{{ buttonLabel }}</button>
       </div>
-      <button class="product__add" @click="buttonClicked">{{ buttonLabel }}</button>
     </div>
   </li>
 </template>
