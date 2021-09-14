@@ -8,28 +8,55 @@ export default new Vuex.Store({
     products: [
       {
         id: 0,
-        title: "Cranberry Nut Trail Mix (20 oz.) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ante justo, dapibus sed felis at, mollis ultrices eros. Phasellus fermentum bibendum sapien ac laoreet.",
-        image: "https://picsum.photos/200/200",
-        price: 54.52,
+        title: "1992 McDonald’s Vinatge Barbie Figure Roller Skating",
+        image: "https://di2ponv0v5otw.cloudfront.net/posts/2019/08/25/5d62e09f9d3b7830e21d567a/m_5d62e0ab2f4831b4c998a9cb.jpg",
+        price: 33,
         isBestSeller: true,
         availableQuantity: 1,
         cartQuantity: 0
       },
       {
         id: 1,
-        title: "iPhone 13?",
-        image: "https://picsum.photos/200/200",
-        price: 999,
+        title: "Rake",
+        image: "https://www.gardeningknowhow.com/wp-content/uploads/2017/04/leaf-rake.jpg",
+        price: 21.99,
         isBestSeller: false,
         availableQuantity: 1,
         cartQuantity: 0
       },
       {
         id: 2,
-        title: "RuPaul Sashay Shante Enamel Pin",
-        image: "https://hottopic.scene7.com/is/image/HotTopic/11419583_hi?$productMainDesktopRetina$",
-        price: 5.52,
+        title: "Sashay Away Enamel Pin",
+        image: "https://ae01.alicdn.com/kf/HTB19e6bev1H3KVjSZFHq6zKppXaa/Purple-Engraved-SASHAY-AWAY-Enamel-Pins-Drag-Race-Drag-Queen-Katya-All-Stars-Lapel-Pin-Brooches.jpg_Q90.jpg_.webp",
+        price: 3.58,
         isBestSeller: false,
+        availableQuantity: 1,
+        cartQuantity: 0
+      },
+      {
+        id: 3,
+        title: "Contact (1997), Blu-ray Disc",
+        image: "https://www.denofgeek.com/wp-content/uploads/2013/06/contact_lead.jpg",
+        price: 18,
+        isBestSeller: false,
+        availableQuantity: 1,
+        cartQuantity: 0
+      },
+      {
+        id: 4,
+        title: "Orange Tic-Tacs, 12 Boxes",
+        image: "https://64.media.tumblr.com/07bb0d6c52f6ccfe3c6280a8c8fe88fd/4a86aaf472662f58-3d/s500x750/76d373795c47f0da2e0aa4faca44a090f62da5ee.jpg",
+        price: 18,
+        isBestSeller: true,
+        availableQuantity: 1,
+        cartQuantity: 0
+      },
+      {
+        id: 5,
+        title: "Gold Glitter, 10 lbs.",
+        image: "https://techcrunch.com/wp-content/uploads/2015/01/goldglitter.jpg",
+        price: 105.68,
+        isBestSeller: true,
         availableQuantity: 1,
         cartQuantity: 0
       },
