@@ -1,0 +1,44 @@
+@use '_normalize.scss' as *;
+@use '_customprops.scss' as *;
+
+@font-face {
+  font-family: 'ReadexPro';
+  font-style:  normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("~@/assets/fonts/readexpro.ttf") format("truetype");
+}
+
+html, body {
+  background: $hue-neutral-20;
+  font-family: 'ReadexPro', sans-serif;
+}
+
+button {
+  background: $hue-neutral-10;
+  box-shadow: 0 0 0 1px $hue-purple-50 inset;
+  border: none;
+  border-radius: $radius-button;
+  color: $hue-purple-50;
+  font-weight: 550;
+  padding: .375rem .75rem;
+  transition: background $timing-exit, color $timing-exit;
+
+  &:hover {
+    background: $hue-purple-50;
+    color: $hue-neutral-10;
+    transition: background $timing-entrance, color $timing-entrance;
+  }
+}
+
+.a11y {
+  &--vo {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}

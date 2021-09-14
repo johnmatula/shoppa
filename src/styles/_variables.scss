@@ -1,0 +1,32 @@
+// variables.scss
+//
+// App-wide SCSS variables that are used in CSS custom properties and rules.
+
+
+// Hues
+$hue-neutral-10: #fff;
+$hue-neutral-20: #f3ede7;
+$hue-neutral-90: #211e1c;
+$hue-red-70: #a72608;
+$hue-purple-50: #5d3ff3;
+$hue-slate-50: #4e4c57;
+$hue-translucent-10: rgba(0,0,0,.1);
+
+
+// Radii
+$radius-button: .25rem;
+$radius-photo: .5rem;
+$radius-card: 1rem;
+
+
+// Timings
+$timing-exit: .1s;
+$timing-entrance: .2s;
+$timing-modal-exit: .25s;
+$timing-modal-entrance: .5s;
+$timing-emphasis: .75s;
+
+
+// Z-index values
+$z-app: 1;
+$z-cart: 10;

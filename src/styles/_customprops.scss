@@ -1,0 +1,13 @@
+@use '_mixins.scss' as *;
+
+:root {
+  --size-a: .5rem;
+  --size-b: 1rem;
+  --size-c: 2rem;
+
+  @include at-least(medium) {
+    --size-a: 1rem;
+    --size-b: 2rem;
+    --size-c: 4rem;
+  }
+}

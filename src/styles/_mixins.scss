@@ -1,0 +1,17 @@
+// Don't put anything in here that generates rendered CSS rules!
+$base-font-size: 16px;
+
+$at-least-breakpoints: (
+  'medium': (min-width: 600px),
+  'large': (min-width: 1000px)
+);
+
+@mixin at-least($name) {
+  @if map-has-key($at-least-breakpoints, $name) {
+    @media screen and #{inspect(map-get($at-least-breakpoints, $name))} {
+      @content;
+    }
+  } @else {
+    @warn "No breakpoints map value exists for ‘#{$name}’.";
+  }
+}
