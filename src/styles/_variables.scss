@@ -1,6 +1,8 @@
-// variables.scss
+// _variables.scss
 //
 // App-wide SCSS variables that are used in CSS custom properties and rules.
+// In a real app, colors and timings would be used in custom properties to
+// allow for inclusive design, themes (like dark mode), and more.
 
 
 // Hues
@@ -15,8 +17,7 @@ $hue-translucent-10: rgba(0,0,0,.1);
 
 // Radii
 $radius-button: .25rem;
-$radius-photo: .5rem;
-$radius-card: 1rem;
+$radius-card: .5rem;
 
 
 // Timings

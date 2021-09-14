@@ -1,5 +1,9 @@
-// Don't put anything in here that generates rendered CSS rules!
-$base-font-size: 16px;
+// _mixins.scss
+//
+// Helper functions for the rest of the app. As this grows, the media query
+// helper might be more useful in a dedicated responsive SCSS partial
+// (since the convenience mixins can get real big, real fast).
+
 
 $at-least-breakpoints: (
   'medium': (min-width: 600px),

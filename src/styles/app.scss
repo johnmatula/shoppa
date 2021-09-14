@@ -1,5 +1,10 @@
-@use '_normalize.scss' as *;
-@use '_customprops.scss' as *;
+// app.scss
+//
+// App-wide styles. In a real app, each rule block here could grow
+// to the point where it would need its own SCSS partial to stay organized.
+
+@use '_normalize' as *;
+@use '_customprops' as *;
 
 @font-face {
   font-family: 'ReadexPro';
@@ -12,6 +17,7 @@
 html, body {
   background: $hue-neutral-20;
   font-family: 'ReadexPro', sans-serif;
+  line-height: 1.3;
 }
 
 button {

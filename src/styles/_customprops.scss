@@ -1,13 +1,24 @@
-@use '_mixins.scss' as *;
+// _customprops.scss
+//
+// CSS custom properties like sizes, semantic colors, and type sizes
+// that need to have the ability to change within the site or app itself.
+// You could think of these as “public” (whereas SCSS vars are “private”).
+// In a real app, semantic colors would be used here to easily swap
+// between dark/light themes, handle `prefers-*` media queries, and more.
+
+
+@use '_mixins' as *;
 
 :root {
-  --size-a: .5rem;
-  --size-b: 1rem;
-  --size-c: 2rem;
+  --size-a: .25rem;
+  --size-b: .5rem;
+  --size-c: 1rem;
+  --size-d: 2rem;
 
   @include at-least(medium) {
-    --size-a: 1rem;
-    --size-b: 2rem;
-    --size-c: 4rem;
+    --size-a: .5rem;
+    --size-b: 1rem;
+    --size-c: 2rem;
+    --size-d: 4rem;
   }
 }
