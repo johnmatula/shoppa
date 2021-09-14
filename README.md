@@ -28,7 +28,7 @@ Reflecting the way in which data flows from parent to child components, componen
 ## Limitations and next steps
 As a sample exercise, this app has a few limitations. All of these would be exciting to turn into next steps to further enhance the app.
 
-* **Incorporate a quantity field.** Right now, you can add one—and only one—of each item to the cart. I built the `Product` component and its corresponding store in such a way to support non-singular quantities, since I figured this would be the most valuable feature to work next.
+* **Incorporate a quantity for each product.** Right now, you can add one—and only one—of each item to the cart. I built the `Product` component and its corresponding store in such a way to support non-singular quantities, since I figured this would be the most valuable feature to work next.
 * **Use semantic variables for colors and other reusable design tokens.** I always use a mix of SCSS variables and CSS custom properties in my apps because they suit different needs. For a real app, I would clean up usage of these more to enable easier use of dark mode themes, inclusive design techniques, and more.
 * **Improve WCAG 2.1 AA compliance.** The biggest opportunity to improve compliance exists within the `Cart` component when displayed as a modal pane at mobile device widths. There are plenty of considerations around focus capturing (preventing focus of non-visible elements) and text labels (instead of relying solely on icons to convey meaning) that I’d need to address.
 
