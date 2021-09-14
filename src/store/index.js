@@ -8,7 +8,7 @@ export default new Vuex.Store({
     products: [
       {
         id: 0,
-        title: "1992 McDonald’s Vinatge Barbie Figure Roller Skating",
+        title: "1992 McDonald’s Vintage Barbie Figure Roller Skating",
         image: "https://di2ponv0v5otw.cloudfront.net/posts/2019/08/25/5d62e09f9d3b7830e21d567a/m_5d62e0ab2f4831b4c998a9cb.jpg",
         price: 33,
         isBestSeller: true,
@@ -56,10 +56,10 @@ export default new Vuex.Store({
         title: "Gold Glitter, 10 lbs.",
         image: "https://techcrunch.com/wp-content/uploads/2015/01/goldglitter.jpg",
         price: 105.68,
-        isBestSeller: true,
+        isBestSeller: false,
         availableQuantity: 1,
         cartQuantity: 0
-      },
+      }
     ]
   },
   mutations: {
