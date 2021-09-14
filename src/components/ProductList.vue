@@ -81,7 +81,6 @@ export default {
 .productlist {
   display: flex;
   flex-direction: column;
-  height: 100%;
   padding: var(--size-c);
 
   &__empty {
