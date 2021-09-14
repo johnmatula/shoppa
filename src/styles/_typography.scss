@@ -1,0 +1,33 @@
+// _typography.scss
+//
+// Shared type styles across the app, packaged as SCSS placeholder classes
+// to make use of the @extend rule.
+
+
+%typography-heading {
+  font-size: .95rem;
+  font-weight: 550;
+  font-variation-settings: 'HEXP' 30;
+  letter-spacing: -.25px;
+}
+
+%typography-subheading {
+  font-size: .75rem;
+  font-variation-settings: 'HEXP' 25;
+  font-weight: 650;
+  letter-spacing: .25px;
+  text-transform: uppercase;
+}
+
+%typography-cart-total-price {
+  font-size: 2rem;
+  font-weight: 350;
+  letter-spacing: -.25px;
+}
+
+%typography-empty {
+  color: $hue-slate-50;
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: .5px;
+}
