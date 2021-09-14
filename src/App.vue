@@ -61,7 +61,7 @@ export default {
     align-items: center;
     display: flex;
     flex: 0 0 auto;
-    padding: var(--size-b);
+    padding: var(--size-c);
   }
 
   &__carttoggle {
@@ -121,6 +121,7 @@ export default {
     right: 0;
     top: 0;
     visibility: hidden;
+    z-index: $z-cart;
 
     transition: left 0s $timing-modal-exit, top 0s $timing-modal-exit, visibility 0s $timing-modal-exit, transform $timing-modal-exit;
 
