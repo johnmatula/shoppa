@@ -62,76 +62,79 @@ export default {
 .product {
   background-color: $hue-neutral-10;
   border-radius: $radius-card;
-  display: grid;
-  gap: var(--size-b);
-  grid-template:
-    "photo bestseller"
-    "photo title"
-    "actions actions" / 8rem auto;
-  padding: var(--size-a);
+  display: flex;
+  padding: var(--size-c);
 
   @include at-least(medium) {
-    grid-template:
-      "photo"
-      "bestseller"
-      "title"
-      "actions" / auto;
-    padding: var(--size-a);
+    flex-direction: column;
+    padding: 0;
   }
 
   @include at-least(large) {
-    grid-template:
-      "photo bestseller"
-      "photo title"
-      "photo actions" / 8rem auto;
-    padding: var(--size-a);
+    flex-direction: row;
   }
 
   &__photo {
-    border-radius: $radius-photo;
-    grid-area: photo;
-    height: 100%;
-    width: 100%;
-    max-height: 8rem;
+    border-radius: 0;
+    flex: 0 0 auto;
+    height: 4rem;
     object-fit: cover;
-    max-width: 8rem;
+    width: 4rem;
 
     @include at-least(medium) {
-      max-height: 15rem;
-      max-width: 15rem;
+      border-radius: $radius-card $radius-card 0 0;
+      height: 8rem;
+      width: 100%;
     }
 
     @include at-least(large) {
-      max-height: 10rem;
-      max-width: 10rem;
+      align-self: stretch;
+      border-radius: $radius-card 0 0 $radius-card;
+      height: auto;
+      width: 8rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex: 1 1 100%;
+    flex-direction: column;
+    gap: var(--size-b);
+    padding-left: var(--size-c);
+
+    @include at-least(medium) {
+      padding: var(--size-b);
     }
   }
 
   &__bestseller {
+    @extend %typography-subheading;
+
+    align-items: center;
+    align-self: flex-start;
+    background-color: $hue-slate-50;
     border-radius: 999px;
-    color: $hue-purple-50;
-    font-size: var(--font);
-    font-variation-settings: 'HEXP' 25;
-    font-weight: 650;
+    color: $hue-neutral-20;
+    display: flex;
     grid-area: bestseller;
-    letter-spacing: -.5px;
+    padding: var(--size-a);
   }
 
   &__title {
-
+    flex: 1 1 auto;
+    margin: 0;
   }
 
   &__actions {
     align-items: center;
     display: flex;
-    grid-area: actions;
     justify-content: flex-end;
   }
 
   &__price {
     color: $hue-slate-50;
     font-size: 1.25rem;
-    margin-right: var(--size-a);
+    margin: 0 var(--size-b) 0 0;
   }
 
   &__add {
