@@ -8,7 +8,7 @@ export default new Vuex.Store({
     products: [
       {
         id: 0,
-        title: "Cranberry Nut Trail Mix (20 oz.)",
+        title: "Cranberry Nut Trail Mix (20 oz.) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ante justo, dapibus sed felis at, mollis ultrices eros. Phasellus fermentum bibendum sapien ac laoreet.",
         image: "https://picsum.photos/200/200",
         price: 54.52,
         isBestSeller: true,
@@ -36,29 +36,50 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
-    adjustQuantities(state, payload) {
+    ADJUST_QUANTITIES(state, payload) {
       state.products[payload.id].availableQuantity += payload.availableAmount
       state.products[payload.id].cartQuantity += payload.cartAmount
     },
   },
   getters: {
-    availableProducts: (state) => {
+    availableProducts: state => {
       return state.products.filter(product => product.availableQuantity > 0)
     },
     cartProducts: state => {
       return state.products.filter(product => product.cartQuantity > 0)
+    },
+    totalCartQuantity: (state, getters) => {
+      var runningQuantity = 0
+      getters.cartProducts.forEach(product => {
+        runningQuantity += product.cartQuantity
+      })
+      return runningQuantity
+    },
+    totalAvailableQuantity: (state, getters) => {
+      var runningQuantity = 0
+      getters.availableProducts.forEach(product => {
+        runningQuantity += product.availableQuantity
+      })
+      return runningQuantity
+    },
+    totalCartPrice: (state, getters) => {
+      var runningPrice = 0
+      getters.cartProducts.forEach(product => {
+        runningPrice += product.price * product.cartQuantity
+      })
+      return runningPrice
     }
   },
   actions: {
     addToCart({ commit }, payload) {
-      commit('adjustQuantities', {
+      commit('ADJUST_QUANTITIES', {
         id: payload.id,
         availableAmount: payload.amount * -1,
         cartAmount: payload.amount
       })
     },
     removeFromCart({ commit }, payload) {
-      commit('adjustQuantities', {
+      commit('ADJUST_QUANTITIES', {
         id: payload.id,
         availableAmount: payload.amount,
         cartAmount: payload.amount * -1
