@@ -22,6 +22,8 @@ The components I built only manage their own data and emit events when an action
 ## CSS, SCSS, and user experience
 Styles are organized in a componentized way along with some global styles to reduce repeated declarations across the app. I organized the top-level variables and helper mixins in different partials, which are loaded in to the entire app styles via `sass-loader`. Then, at the component level, I follow BEM syntax to write styles efficiently.
 
+The app is fully responsive with breakpoints at 600 pixels and 1000 pixels.
+
 Reflecting the way in which data flows from parent to child components, component styles only affect their own block level and do not affect other component layouts. (For instance, the `ProductList` dictates how the `Product` is displayed and spaced out.) This helps organize styles and use the cascading nature of CSS to the app’s advantage.
 
 
